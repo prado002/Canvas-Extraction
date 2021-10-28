@@ -77,6 +77,8 @@ try:
     # clicks on the send_push button
     send_push.click()
 
+    # sets driver focus back to the parent frame
+    driver.switch_to.parent_frame()
 
 finally:
     # stop program
