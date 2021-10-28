@@ -85,6 +85,12 @@ try:
     # clicks on the courses tab
     courses_tab.click()
 
+    # locating the sandbox course
+    sandbox = driver.find_element(By.XPATH, './/*[@id="nav-tray-portal"]/span/span/div/div/div/div/div/ul[1]/li[1]/a')
+    # clicks on the sandbox course
+    sandbox.click()
+    
+
 finally:
     # stop program
     driver.quit()
