@@ -85,11 +85,6 @@ try:
     # clicks on the courses tab
     courses_tab.click()
 
-    # the program waits up to 10 seconds for the sandbox element to be visible
-    WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable(driver.find_element(By.XPATH, './/*[@id="nav-tray-portal"]/span/span/div/div/div/div/div/ul[1]/li[1]/a'))
-    )
-
     # locating the sandbox course
     sandbox = driver.find_element(By.XPATH, './/*[@id="nav-tray-portal"]/span/span/div/div/div/div/div/ul[1]/li[1]/a')
     # clicks on the sandbox course
