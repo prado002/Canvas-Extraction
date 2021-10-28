@@ -80,6 +80,11 @@ try:
     # sets driver focus back to the parent frame
     driver.switch_to.parent_frame()
 
+    # locating the courses tab in canvas
+    courses_tab = driver.find_element(By.ID, 'global_nav_courses_link')
+    # clicks on the courses tab
+    courses_tab.click()
+
 finally:
     # stop program
     driver.quit()
