@@ -29,6 +29,10 @@ try:
 
     # chrome webdriver
     driver = webdriver.Chrome()
+
+    # implicit wait for 60 seconds
+    driver.implicitly_wait(60)
+
     # navigation to the assigned url
     driver.get(url)
 
