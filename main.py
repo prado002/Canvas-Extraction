@@ -44,15 +44,13 @@ def extract(link):
         # add the list to a data frame
         df = pd.DataFrame(parent_list)
 
-    # convert the data frame to .CSV file 
+    # convert the data frame to .CSV file
     df.to_csv('parent_list.csv')
 
 
 class Main:
     # url for UW-Parkside Canvas login page
     url = 'https://www.uwp.edu/explore/offices/campustechnologyservices/innovationsinlearning/canvas-login.cfm'
-    # url for secure login
-    secure_url = 'https://uwpks.instructure.com/?login_success=1'
 
     # dictionary for personal UWP login
     payload = {
