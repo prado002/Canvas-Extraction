@@ -15,6 +15,10 @@ and send you a duo authentication. You should then be logged into Canvas.
 # chrome webdriver
 driver = webdriver.Chrome()
 
+# parent list
+parent_list = []
+
+
 # method for extraction
 def extract(link):
     # opens the link
@@ -22,9 +26,6 @@ def extract(link):
 
     # parent of the discussion topic
     parent = driver.find_elements(By.XPATH, './/*[@id="content"]/div/div[2]/div/div/span/div/span/span[1]')
-
-    # parent list
-    parent_list = []
 
     # iterate the parent
     for p in parent:
