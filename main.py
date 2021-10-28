@@ -29,15 +29,22 @@ def extract(link):
 
     # iterate the parent
     for p in parent:
+        # locating the creator of the parent's name
         name = p.find_element(By.CLASS_NAME, 'user_content').text
+        # locating the parent's topic
         topic = p.find_element(By.XPATH, '//*[@id="content"]/div/div[2]/div/div/span/div/span/span[1]/div/span/span[2]/div/span/h1/span/span/span[2]').text
+
+        # parent dictionary
         parent_dict = {
             'Name': name,
             'Topic': topic
         }
+        # add the dictionary to the list
         parent_list.append(parent_dict)
+        # add the list to a data frame
         df = pd.DataFrame(parent_list)
-    
+
+    # convert the data frame to .CSV file 
     df.to_csv('parent_list.csv')
 
 
@@ -134,6 +141,7 @@ class Main:
             # appends the discussion list
             disc_list.append(link)
 
+        # iterates through the list and calls extract on each link
         for i in disc_list:
             extract(i)
 
