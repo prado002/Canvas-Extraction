@@ -77,20 +77,6 @@ try:
     # clicks on the send_push button
     send_push.click()
 
-    WebDriverWait(driver, 60).until(
-        EC.url_changes(login_url)
-    )
-
-    # waits 10 seconds
-    # placeholder for testing
-    time.sleep(10)
-
-    # prints out the title of the dashboard to confirm the login
-    # just a place holder
-    new_url = driver.current_url
-    print(new_url)
-
-    # extraction code will go below
 
 finally:
     # stop program
