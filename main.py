@@ -96,8 +96,12 @@ try:
     discussions.click()
 
     # locating the discussion rows
-    disc_rows = driver.find_element(By.CLASS_NAME, 'ic-discussion-row-container')
-    print(disc_rows.text)
+    disc_rows = driver.find_elements(By.CLASS_NAME, 'ic-discussion-content-container')
+
+    # iterates through the discussion rows to get the discussion links
+    for d in disc_rows:
+        title = d.find_element(By.CSS_SELECTOR, 'a.fOyUs_bGBk').get_attribute('href')
+        print(title)
 
 finally:
     # stop program
