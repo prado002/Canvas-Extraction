@@ -12,10 +12,8 @@ It should automatically navigate through canvas, enter your credentials,
 and send you a duo authentication. You should then be logged into Canvas.
 """
 
-
 # chrome webdriver
 driver = webdriver.Chrome()
-
 
 # method for extraction
 def extract(link):
@@ -25,11 +23,21 @@ def extract(link):
     # parent of the discussion topic
     parent = driver.find_elements(By.XPATH, './/*[@id="content"]/div/div[2]/div/div/span/div/span/span[1]')
 
-    for p in parent:
-        name = p.find_element(By.CLASS_NAME, 'user_content')
-        topic = p.find_element(By.XPATH, '//*[@id="content"]/div/div[2]/div/div/span/div/span/span[1]/div/span/span[2]/div/span/h1/span/span/span[2]')
-        print(name.text, topic.text)
+    # parent list
+    parent_list = []
 
+    # iterate the parent
+    for p in parent:
+        name = p.find_element(By.CLASS_NAME, 'user_content').text
+        topic = p.find_element(By.XPATH, '//*[@id="content"]/div/div[2]/div/div/span/div/span/span[1]/div/span/span[2]/div/span/h1/span/span/span[2]').text
+        parent_dict = {
+            'Name': name,
+            'Topic': topic
+        }
+        parent_list.append(parent_dict)
+        df = pd.DataFrame(parent_list)
+    
+    df.to_csv('parent_list.csv')
 
 
 class Main:
