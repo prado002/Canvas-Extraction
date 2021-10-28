@@ -85,10 +85,10 @@ try:
     # clicks on the courses tab
     courses_tab.click()
 
-    # locating the sandbox course
-    sandbox = driver.find_element(By.XPATH, './/*[@id="nav-tray-portal"]/span/span/div/div/div/div/div/ul[1]/li[1]/a')
-    # clicks on the sandbox course
-    sandbox.click()
+    # locating the sandbox course's link
+    sandbox = driver.find_element(By.XPATH, './/*[@id="nav-tray-portal"]/span/span/div/div/div/div/div/ul[1]/li[1]/a').get_attribute('href')
+    # navigates to the sandbox course
+    driver.get(sandbox)
 
     # locating the discussions tab
     discussions = driver.find_element(By.CLASS_NAME, 'discussions')
